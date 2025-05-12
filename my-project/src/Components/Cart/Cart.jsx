@@ -96,7 +96,7 @@ const Cart = () => {
                         onClick={() => decreaseQuantity(product.productId)}
                         className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
                       >
-                        
+                        -
                       </button>
                       <span>{product.quantity}</span>
                       <button

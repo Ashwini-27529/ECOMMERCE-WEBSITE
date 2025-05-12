@@ -5,7 +5,7 @@ import { GiVineLeaf } from "react-icons/gi";
 
 const Footer = () => {
   return (
-    <footer className='bg-primary/10  mt-12'>
+    <footer className='bg-primary/10'>
         <motion.div 
         initial={{opacity:0}}
         whileInView={{opacity:1}}
