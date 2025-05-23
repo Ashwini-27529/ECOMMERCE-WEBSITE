@@ -5,7 +5,6 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [cartCount, setCartCount] = useState(0);
-  const [popupMessage, setPopupMessage] = useState("");
 
   useEffect(() => {
     fetchCart();
@@ -44,11 +43,6 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const showPopup = (message) => {
-    setPopupMessage(message);
-    setTimeout(() => setPopupMessage(""), 3000);
-  };
-
   const addToCart = async (product) => {
     const updatedCart = [...cart];
     const existingProduct = updatedCart.find(
@@ -63,7 +57,6 @@ export const CartProvider = ({ children }) => {
 
     setCart(updatedCart);
     setCartCount(updatedCart.reduce((acc, item) => acc + item.quantity, 0));
-    showPopup(`${product.title} added to cart!`);
     syncCartWithAPI(updatedCart);
   };
 
@@ -75,7 +68,6 @@ export const CartProvider = ({ children }) => {
     );
     setCart(updatedCart);
     setCartCount(updatedCart.reduce((acc, item) => acc + item.quantity, 0));
-    showPopup("Quantity increased");
     syncCartWithAPI(updatedCart);
   };
 
@@ -90,10 +82,8 @@ export const CartProvider = ({ children }) => {
           ? { ...i, quantity: i.quantity - 1 }
           : i
       );
-      showPopup("Quantity decreased");
     } else {
       updatedCart = cart.filter((i) => i.productId !== productId);
-      showPopup("Item removed from cart");
     }
 
     setCart(updatedCart);
@@ -109,10 +99,10 @@ export const CartProvider = ({ children }) => {
         addToCart,
         increaseQuantity,
         decreaseQuantity,
-        popupMessage,
       }}
     >
       {children}
     </CartContext.Provider>
   );
 };
+

@@ -35,7 +35,8 @@ const Navbar = () => {
   
     return (
       <>
-        <nav className='bg-gradient-to-r from-red-300 to-red-400'>
+        <nav className=' top-0  left-0 w-full z-50 bg-gradient-to-r  items-center from-red-300 to-red-400 shadow-md'>
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
