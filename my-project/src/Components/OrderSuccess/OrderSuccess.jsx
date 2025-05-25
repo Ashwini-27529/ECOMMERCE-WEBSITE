@@ -13,7 +13,7 @@ const OrderSuccess = () => {
         transition={{ type: 'spring', stiffness: 100 }}
         className="text-4xl font-bold text-green-700 mb-6"
       >
-        🎉 Hurry! Successfully Ordered!
+         Hurry! Successfully Ordered!
       </motion.h1>
 
       <motion.button

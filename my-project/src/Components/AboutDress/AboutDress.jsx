@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const AboutDress = () => {
   return (
-    <div className="container mx-auto py-10 px-4">
+    <div className="container pt-20 mx-auto py-10 px-4">
       <motion.h1
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
@@ -22,7 +22,7 @@ const AboutDress = () => {
         Dress shopping is an exciting experience that lets you explore a wide variety of styles,
         colors, and fabrics to match your personality and occasion. Whether you're shopping for a
         casual outing, a formal event, or a traditional celebration, there are countless designs
-        available—from elegant gowns to trendy summer dresses. Our collection ensures comfort,
+        available from elegant gowns to trendy summer dresses. Our collection ensures comfort,
         style, and quality at every step.
       </motion.p>
 

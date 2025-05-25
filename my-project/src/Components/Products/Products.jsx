@@ -31,8 +31,8 @@ const Products = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-500"></div>
+      <div className=" flex justify-center items-center h-screen">
+        <div className=" animate-spin rounded-full h-16 w-16 border-t-4 border-red-500"></div>
       </div>
     );
   }
@@ -42,7 +42,7 @@ const Products = () => {
   }
 
   return (
-    <div className="container mx-auto my-8 px-4">
+    <div className="container mx-auto my-8 pt-20 px-4">
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Our Products</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

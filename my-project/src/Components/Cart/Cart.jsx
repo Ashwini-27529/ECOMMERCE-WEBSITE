@@ -1,19 +1,27 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { CartContext } from "../CartContext/CartContext";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const {
     cart,
     increaseQuantity,
     decreaseQuantity,
-    popupMessage,
   } = useContext(CartContext);
+  
+  const { popupMessage } = useContext(CartContext);
+
+{popupMessage && (
+  <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-50 transition-all duration-300">
+    {popupMessage}
+  </div>
+)}
+
+  
   const [products, setProducts] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const productCache = useRef({});
-  
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -46,7 +54,6 @@ const Cart = () => {
     }
   }, [cart]);
 
-  // Calculate total amount
   useEffect(() => {
     const total = products.reduce(
       (sum, product) => sum + product.price * product.quantity,
@@ -55,19 +62,12 @@ const Cart = () => {
     setTotalAmount(total);
   }, [products]);
 
-  // Handle the proceed to checkout click
   const handleCheckout = () => {
-    navigate("/checkout"); // This will navigate to the Checkout page
+    navigate("/checkout");
   };
 
   return (
-    <div className="container mx-auto my-8 min-h-[300px]">
-      {popupMessage && (
-        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-50">
-          {popupMessage}
-        </div>
-      )}
-
+    <div className="container pt-16 mx-auto my-8 min-h-[300px]">
       <h1 className="text-3xl font-bold text-center mb-6">Your Cart</h1>
       <div className="space-y-4">
         {products.length === 0 ? (
@@ -118,10 +118,9 @@ const Cart = () => {
                     ${totalAmount.toFixed(2)}
                   </span>
                 </div>
-
                 <button
                   className="w-full bg-gradient-to-r from-pink-500 to-red-500 text-white py-3 px-6 rounded-full shadow-md hover:from-pink-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105"
-                  onClick={handleCheckout} // Trigger navigation when button is clicked
+                  onClick={handleCheckout}
                 >
                   Proceed to Checkout
                 </button>

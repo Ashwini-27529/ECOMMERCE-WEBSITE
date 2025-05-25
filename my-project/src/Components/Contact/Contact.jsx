@@ -11,21 +11,21 @@ const Contact = () => {
 
         <div className="space-y-4">
           <p className="text-lg font-semibold text-gray-700 hover:text-red-500 transition duration-300">
-            ✉️ Email: 
+             Email: 
             <a href="mailto:support@fullbasket.com" className="ml-2 text-red-600 hover:underline">
               support@fullbasket.com
             </a>
           </p>
 
           <p className="text-lg font-semibold text-gray-700 hover:text-red-500 transition duration-300">
-            📞 Phone: 
+             Phone: 
             <a href="tel:+1234567890" className="ml-2 text-red-600 hover:underline">
               +123 456 7890
             </a>
           </p>
 
           <p className="text-lg font-semibold text-gray-700 hover:text-red-500 transition duration-300">
-            📍 Address:
+             Address:
             <span className="ml-2 text-gray-600">123 Market Street, Shopping City</span>
           </p>
         </div>
