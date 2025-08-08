@@ -44,7 +44,7 @@ const Checkout = () => {
 
   return (
     // ... Your existing JSX
-     <div className="container mx-auto py-12 px-6">
+     <div className="container pt-16 mx-auto py-12 px-6">
       {/* Checkout Heading */}
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
